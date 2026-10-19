@@ -1,4 +1,4 @@
-# 扎代｜AI Agent / Java 开发工程师简历
+# online resume
 
 一个基于 Astro 构建的专业个人简历网站，面向 Java 后端与 AI Agent 开发岗位，支持响应式浏览、头像展示、完整技能清单、项目经历与 GitHub Pages 自动部署。
 
@@ -18,19 +18,6 @@
 访问：<https://freya0525.github.io/stale-shepherd/>
 
 网站采用深蓝到青绿色渐变头图、信息卡片、技能标签和清晰的简历分节，适合桌面端浏览，也适合手机端查看。
-
-## 页面结构
-
-```mermaid
-flowchart TD
-  A[访问简历首页] --> B[个人信息与头像]
-  B --> C[教育背景]
-  C --> D[求职意向]
-  D --> E[核心技能]
-  E --> F[项目经历]
-  F --> G[工作经历]
-  G --> H[自我评价]
-```
 
 ## 功能特性
 
@@ -121,29 +108,90 @@ public/avatar.jpg
 
 ## 部署到 GitHub Pages
 
-项目已经包含 GitHub Actions 配置：
+### 三、添加自动部署文件
 
-```text
-.github/workflows/deploy.yml
-```
-
-提交并推送到 `main` 分支：
+创建目录和文件：
 
 ```bash
-git add .
-git commit -m "更新简历"
+mkdir -p .github/workflows
+touch .github/workflows/deploy.yml
+```
+
+将以下内容写入 `.github/workflows/deploy.yml`：
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and upload
+        uses: withastro/action@v3
+        with:
+          node-version: 22
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+### 四、在 GitHub 开启 Pages
+
+进入 GitHub 仓库：
+
+```text
+Settings
+→ Pages
+→ Build and deployment
+→ Source
+→ GitHub Actions
+```
+
+然后提交部署文件：
+
+```bash
+git add astro.config.mjs .github/workflows/deploy.yml
+git commit -m "配置 GitHub Pages 部署"
 git push
 ```
 
-GitHub Actions 会自动完成：
+进入仓库的：
 
 ```text
-拉取代码 → 安装依赖 → 构建 Astro → 发布 GitHub Pages
+Actions
 ```
 
-仓库的 GitHub Pages 地址：
+等待工作流完成。
 
-<https://freya0525.github.io/stale-shepherd/>
+如果你的用户名是 `yourname`，仓库名是 `stale-shepherd`，网站地址一般是：
+
+```text
+https://yourname.github.io/stale-shepherd/
+```
 
 ## 许可证
 
