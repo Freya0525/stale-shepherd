@@ -1,46 +1,150 @@
-# Astro Starter Kit: Basics
+# 扎代｜AI Agent / Java 开发工程师简历
 
-```sh
-npm create astro@latest -- --template basics
+一个基于 Astro 构建的专业个人简历网站，面向 Java 后端与 AI Agent 开发岗位，支持响应式浏览、头像展示、完整技能清单、项目经历与 GitHub Pages 自动部署。
+
+<p align="center">
+  <a href="https://freya0525.github.io/stale-shepherd/">在线预览</a>
+  ·
+  <a href="https://github.com/Freya0525/stale-shepherd/actions">部署状态</a>
+</p>
+
+![Astro](https://img.shields.io/badge/Astro-7.x-BC52EE?logo=astro&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-22%2B-339933?logo=node.js&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-222222?logo=github&logoColor=white)
+![License](https://img.shields.io/badge/license-personal-use-blue)
+
+## 在线预览
+
+访问：<https://freya0525.github.io/stale-shepherd/>
+
+网站采用深蓝到青绿色渐变头图、信息卡片、技能标签和清晰的简历分节，适合桌面端浏览，也适合手机端查看。
+
+## 页面结构
+
+```mermaid
+flowchart TD
+  A[访问简历首页] --> B[个人信息与头像]
+  B --> C[教育背景]
+  C --> D[求职意向]
+  D --> E[核心技能]
+  E --> F[项目经历]
+  F --> G[工作经历]
+  G --> H[自我评价]
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 功能特性
 
-## 🚀 Project Structure
+- 响应式简历布局，适配桌面端和移动端
+- 支持本地头像文件展示
+- 完整展示 Java、Spring Cloud、MySQL、Redis、消息队列和 AI 相关技能
+- 项目职责、技能描述和项目亮点采用数据驱动方式渲染
+- 支持 GitHub Pages 静态部署
+- 推送到 `main` 分支后自动执行构建和发布
+- 支持浏览器打印为 PDF
+- 使用 Astro 静态生成，无需后端服务或数据库
 
-Inside of your Astro project, you'll see the following folders and files:
+## 技术栈
+
+| 技术 | 用途 |
+| --- | --- |
+| Astro | 页面构建与静态生成 |
+| TypeScript | Astro 类型检查 |
+| CSS | 响应式布局与视觉样式 |
+| GitHub Actions | 自动构建和部署 |
+| GitHub Pages | 静态网站托管 |
+
+## 项目目录
 
 ```text
-/
+stale-shepherd/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       # GitHub Pages 自动部署
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── avatar.jpg           # 个人头像
+│   ├── favicon.svg          # 站点图标
+│   └── favicon.ico
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro     # 页面 HTML 外壳和全局样式
+│   └── pages/
+│       └── index.astro      # 简历内容、数据和页面样式
+├── astro.config.mjs         # Astro 与 GitHub Pages 配置
+├── package.json
+└── tsconfig.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 本地运行
 
-## 🧞 Commands
+要求 Node.js `22.22.0` 或更高版本。
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm install
+npm run dev
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+开发服务器启动后访问：
 
-## 👀 Want to learn more?
+```text
+http://localhost:4321
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+生产构建：
+
+```bash
+npm run build
+```
+
+预览生产构建：
+
+```bash
+npm run preview
+```
+
+## 修改简历内容
+
+主要内容集中在 [`src/pages/index.astro`](./src/pages/index.astro) 的顶部数据区，可以直接修改：
+
+- 姓名、电话、邮箱、民族、年龄、微信
+- 教育背景和求职意向
+- 核心技能标签和完整技能说明
+- 项目名称、技术栈、项目职责、技能描述和项目亮点
+- 工作经历和自我评价
+
+替换头像时，将新图片放到：
+
+```text
+public/avatar.jpg
+```
+
+文件名保持为 `avatar.jpg` 即可。
+
+## 部署到 GitHub Pages
+
+项目已经包含 GitHub Actions 配置：
+
+```text
+.github/workflows/deploy.yml
+```
+
+提交并推送到 `main` 分支：
+
+```bash
+git add .
+git commit -m "更新简历"
+git push
+```
+
+GitHub Actions 会自动完成：
+
+```text
+拉取代码 → 安装依赖 → 构建 Astro → 发布 GitHub Pages
+```
+
+仓库的 GitHub Pages 地址：
+
+<https://freya0525.github.io/stale-shepherd/>
+
+## 许可证
+
+本项目主要用于个人简历展示和学习参考。未经许可，请勿直接复制个人信息、头像或简历内容用于其他用途。
