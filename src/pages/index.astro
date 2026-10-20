@@ -27,19 +27,19 @@ const skillDetails = [
   '熟悉 HTML、CSS、JS、VUE3、ElementPlus 等技术。'
 ];
 const project = {
-  name: '梦梦声波',
+  name: '喜玛拉娅',
   stack: 'SpringBoot、SpringCloud、MySQL、MyBatis-Plus、RabbitMQ、Redis、Redisson、MongoDB、OpenFeign、Gateway、Nacos、ElasticSearch、Xxl-Job、腾讯云点播、Seata、Canal。',
-  description: '“梦梦声波”以声音为舟，带用户驶入奇幻梦境。项目融合了多种风格的助眠音频，有轻柔舒缓的古典音乐，搭配细腻的故事讲述，营造出童话般的梦幻场景；也有充满异域风情的旋律，结合自然音效，仿佛置身于神秘的远方。无论是想放松疲惫的身心，还是渴望一场充满想象的梦境冒险，在这里都能找到专属的声音向导，让每一个夜晚都成为一场独特的梦境旅行。',
+  description: '“喜玛拉娅”以声音为舟，带用户驶入奇幻梦境。项目融合了多种风格的助眠音频，有轻柔舒缓的古典音乐，搭配细腻的故事讲述，营造出童话般的梦幻场景；也有充满异域风情的旋律，结合自然音效，仿佛置身于神秘的远方。无论是想放松疲惫的身心，还是渴望一场充满想象的梦境冒险，在这里都能找到专属的声音向导，让每一个夜晚都成为一场独特的梦境旅行。',
   responsibilities: ['引入大模型技术，参与部分 AI 声音评析功能的开发，参与需求分析，设计部分接口。', '负责详情模块开发优化：展示专辑详情信息、声音统计信息和对应声音列表，并使用多线程异步编排优化项目，将当前接口在 gps100 时从 500ms 降低到 150ms 左右。', '参与订单模块开发：负责订单结算。', '参与后台模块开发，主要实时记录播放时间及进度，让用户可以无缝衔接声波进度。'],
   skills: ['使用 OpenFeign 进行远程调用，Gateway 作为网关进行请求过滤，Sentinel 进行服务的熔断及降级，Nacos 作为配置中心以及注册中心。', '使用阿里云存储图片信息，使用腾讯云点播存储音频数据，使用数据万象审核声音及专辑名字信息。', '使用 MongoDB 存储历史播放信息，保存声音进度，实现无感续听。', '上架时将专辑名称存入 ES 搜索引擎，实现快速检索。', '使用 Spring 的 TaskExecutor 以及自定义线程池实现并发查询多线程查询提高接口响应速度。', '使用执行计划分析 SQL 语句，通过建立索引，优化语句提升执行效率。', '使用 Xxl-Job 定时过期已过期的 VIP 用户，更新排行榜。', '使用 Redis 对数据进行缓存，使查询的数据优先访问 Redis 而不是 MySQL 提升接口效率，降低数据库压力。', '使用布隆过滤器防止缓存穿透，使用 Redisson 分布式锁解决缓存击穿。', '使用 Seata 解决多个微服务模块互相调用产生的事务问题，并对分布式事务进行监控。', '使用 RabbitMQ 延迟消息以及延迟消息插件实现 10 分钟未支付自动关闭订单功能。'],
   highlights: ['运用策略＋工厂设计模式避免大量 if-else 判断出现，并解决硬编码降低代码侵入性。', '基于自定义注解＋aop＋springEL 表达式完成了可拔插，可通用，可配置的 Redis 缓存组件。', '使用 CompletableFuture 对多模块 OpenFeign 进行异步编排，提升接口查询效率。', '使用 LangChain4j 调用 DeepSeek 大模型，对专辑进行描述以及联想，并使用 OpenAiStreamingChatModel 以流式方式向用户进行输出，提升用户体验。', '为避免出现库存超扣问题，使用 Redisson 分布式锁解决库存超扣问题。', '使用腾讯云点播服务对声音、专辑名称以及图片上进行审核，上架专辑、声音时如消息不通过审核直接拒绝上架，需要人工审核则交给人工复审。']
 };
 ---
-<Layout title="扎代｜Java 开发工程师">
+<Layout title="Java 开发工程师">
   <main class="resume">
-    <header class="hero"><div class="hero-main"><p class="eyebrow">JAVA ENGINEER · BACKEND DEVELOPMENT</p><h1>扎代</h1><p class="headline">求职方向：AI 全能开发工程师</p><div class="contact-grid"><span><b>姓名</b> 扎代</span><span><b>电话</b> 18701421535</span><span><b>民族</b> 柯尔克孜</span><span><b>邮箱</b> N2839389096@126.com</span><span><b>年龄</b> 26 岁</span><span><b>微信</b>RDevil07</span></div></div><div class="portrait" aria-label="扎代的个人头像"><img src={`${import.meta.env.BASE_URL}/avatar.jpg`} alt="扎代的个人头像" /></div></header>
+    <header class="hero"><div class="hero-main"><p class="eyebrow">JAVA ENGINEER · BACKEND DEVELOPMENT</p><h1>Freya</h1><p class="headline">求职方向：AI 全能开发工程师</p><div class="contact-grid"><span><b>姓名</b> Freya</span><span><b>电话</b> 18201321535</span><span><b>民族</b> 柯尔克孜</span><span><b>邮箱</b> N2839323096@126.com</span><span><b>年龄</b> 26 岁</span><span><b>微信</b>RDevil07</span></div></div><div class="portrait" aria-label="Freya的个人头像"><img src={`${import.meta.env.BASE_URL}/avatar.jpg`} alt="Freya的个人头像" /></div></header>
     <div class="content">
-      <section class="section education"><div class="section-heading"><span>教育背景</span><i></i></div><div class="education-row"><strong>2019.09 - 2023.06</strong><span>新疆农业大学</span></div><p>英语：六级、国家励志奖学金、自治区奖学金、优秀班干部等</p></section>
+      <section class="section education"><div class="section-heading"><span>教育背景</span><i></i></div><div class="education-row"><strong>2019.09 - 2023.06</strong><span>xxxx大学</span></div><p>英语：六级、国家励志奖学金、自治区奖学金、优秀班干部等</p></section>
       <section class="section intent"><div class="section-heading"><span>求职意向</span><i></i></div><div class="intent-grid"><p><b>期望职位：</b>AI Agent 工程师</p><p><b>期望城市：</b>北京</p><p><b>到岗时间：</b>随时到岗</p><p><b>目前状态：</b>离职</p><p><b>期望薪资：</b>面议</p><p><b>工作性质：</b>全职</p></div></section>
       <section class="section"><div class="section-heading"><span>核心技能</span><i></i></div><div class="skill-cloud">{skills.map((skill) => <span>{skill}</span>)}</div><ol class="skill-list">{skillDetails.map((skill) => <li>{skill}</li>)}</ol></section>
       <section class="section project"><div class="section-heading"><span>项目经历</span><i></i></div><div class="project-meta"><span>项目名称：{project.name}</span></div><p class="project-line"><b>技术栈：</b>{project.stack}</p><h3>项目描述：</h3><p class="project-intro">{project.description}</p><h3>项目职责：</h3><ol class="project-list">{project.responsibilities.map((item) => <li>{item}</li>)}</ol><h3>技能描述：</h3><ol class="project-list">{project.skills.map((item) => <li>{item}</li>)}</ol><h3>项目亮点：</h3><ol class="project-list">{project.highlights.map((item) => <li>{item}</li>)}</ol></section>
